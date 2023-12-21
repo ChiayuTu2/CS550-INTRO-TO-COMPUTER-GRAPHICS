@@ -1,3 +1,30 @@
+//	Assignment One / Draw 3D
+//
+//	The objective is to draw a 3d object and change the color of the axes
+//		with a glut menu
+//
+//	The left mouse button does rotation
+//	The middle mouse button does scaling
+//	The user interface allows:
+//		1. The axes to be turned on and off
+//		2. The color of the axes to be changed
+//		3. Debugging to be turned on and off
+//		4. Depth cueing to be turned on and off
+//		5. The projection to be changed
+//		6. The transformations to be reset
+//		7. The program to quit
+//
+//	Author:			Chiayu Tu
+//      
+//      Instructions:
+//	1. You can use pre-canned 3D objects, such as the ones that GLUT provides, or the OSU functions that we provide, or OBJ files, but in addition to your own, 
+//	not instead of. You must create your own geometry.
+//      2. You can explicitly list your own 3D coordinates, or you can use equations and define the 3D shapes procedurally.
+//	3. You must have at least 100 x-y-z coordinates. These can be divided up among multiple of your objects.
+//	4. The scene must have 3D thickness, nothing that is completely planar.
+//	5. You must use at least 5 different colors.
+//	6. The 3D rotation and scaling from the sample program must still be working.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -22,28 +49,9 @@
 #include <GL/glu.h>
 #include "glut.h"
 
-
-//	This is a sample OpenGL / GLUT program
-//
-//	The objective is to draw a 3d object and change the color of the axes
-//		with a glut menu
-//
-//	The left mouse button does rotation
-//	The middle mouse button does scaling
-//	The user interface allows:
-//		1. The axes to be turned on and off
-//		2. The color of the axes to be changed
-//		3. Debugging to be turned on and off
-//		4. Depth cueing to be turned on and off
-//		5. The projection to be changed
-//		6. The transformations to be reset
-//		7. The program to quit
-//
-//	Author:			Joe Graphics
-
 // title of these windows:
 
-const char *WINDOWTITLE = "OpenGL / GLUT Sample -- Joe Graphics";
+const char *WINDOWTITLE = "OpenGL / GLUT Sample -- Chiayu Tu";
 const char *GLUITITLE   = "User Interface Window";
 
 // what the glui package defines as true and false:
