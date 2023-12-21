@@ -1,4 +1,37 @@
-﻿#include <stdio.h>
+//	This is a sample OpenGL / GLUT program
+//
+//	The objective is to draw a 3d object and change the color of the axes
+//		with a glut menu
+//
+//	The left mouse button does rotation
+//	The middle mouse button does scaling
+//	The user interface allows:
+//		1. The axes to be turned on and off
+//		2. The color of the axes to be changed
+//		3. Debugging to be turned on and off
+//		4. Depth cueing to be turned on and off
+//		5. The projection to be changed
+//		6. The transformations to be reset
+//		7. The program to quit
+//
+//	Author:			Chiayu Tu
+// 	
+//	Instructions:
+//	1. Draw a horizontal circle with radius 2.0 in the X-Z plane (see above) to show the path of the horse.
+//	2. Draw a carousel horse into a display list. Don't worry -- this won't be as hard as it sounds. The code for creating the horse geometry is shown below in the Geometry section. The horse's hooves are in the X-Z plane. The top of the horse points up in +Y. The horse's head faces in +X.
+// 	3. The horse given to you from the display list looks like this:
+//	4. Each horse will have 4 transformations, not necessarily in this order:
+//		The horse needs to translate up and down
+//		The horse needs to revolve in a circle
+//		The horse needs to be translated from the origin to the outside of the circle
+//		The horse needs to rock back and forth (like a rocking horse). If this was an airplane, we would call this motion "pitching".
+//	5. Allow two views: an "Outside" view of the entire scene and an "Inside" view from the center of the carousel looking outward. Be able to switch between them in your video. (You could use a pop-up menu or a keyboard hit) For each view, use a different call to gluLookAt( ) to position the eye.
+//	6. Keep the same Xrot, Yrot, and Scale features as we've used before, but only in the Outside View. Do not use Xrot, Yrot, and Scale in the Inside View.
+//	7. Use gluPerspective( ), for both views. Only allow a switch to glOrtho( ) in the Outside view.
+//	8. Use the graphics programming strategy where the Display( ) function looks at a collection of global variables and draws the scene correctly. The other parts of the program set the global variables and post a redisplay.
+//	9. When you get one horse to behave correctly, there is a +10 point Extra Credit if you add 3 more horses, each 90° apart on the circle, each translating and rocking out of phase with the others.
+
+#include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <iostream>
@@ -26,28 +59,9 @@
 //---------------------------------Step Two---------------------------------
 #include "CarouselHorse0.10.550"
 
-
-//	This is a sample OpenGL / GLUT program
-//
-//	The objective is to draw a 3d object and change the color of the axes
-//		with a glut menu
-//
-//	The left mouse button does rotation
-//	The middle mouse button does scaling
-//	The user interface allows:
-//		1. The axes to be turned on and off
-//		2. The color of the axes to be changed
-//		3. Debugging to be turned on and off
-//		4. Depth cueing to be turned on and off
-//		5. The projection to be changed
-//		6. The transformations to be reset
-//		7. The program to quit
-//
-//	Author:			Joe Graphics
-
 // title of these windows:
 
-const char *WINDOWTITLE = "OpenGL / GLUT Sample -- Joe Graphics";
+const char *WINDOWTITLE = "OpenGL / GLUT Sample -- Chiayu Tu";
 const char *GLUITITLE   = "User Interface Window";
 
 // what the glui package defines as true and false:
