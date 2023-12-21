@@ -19,7 +19,7 @@
 //	Instructions:
 //	1. Do a keytime animation on a 3D object that is capable of being lighted (your choice). There need to be at least 8 quantities being animated, 
 //	   each with at least 6 keytimes that define each animation.
-//  2. The 8 quantities to be animated must be:
+//  	2. The 8 quantities to be animated must be:
 // 		1 quantity that has something to do with a light source (position, color, etc.)
 // 		1 quantity that has something to do with viewing (eye position, look position, etc.)
 // 		1 quantity that has something to do with positioning, orienting, or scaling the object
