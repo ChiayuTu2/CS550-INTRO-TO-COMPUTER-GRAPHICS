@@ -1,11 +1,13 @@
-## Project Title and Description
+# CS 550 Project One: Drawing something cool in 3D!
 
-Title: Draw Something Cool in 3D!
+## Author
+- Name: Chiayu Tu
+- Email: tuchi@oregonstate.edu
 
-Description: This project requires drawing something fun and cool in 3D.
+## Project Overview
 
-## Installation Instructions
+This project is a simple OpenGL renderer that draws a basic scene with a tree, ground, and sun, demonstrating the fundamental capabilities of OpenGL and basic computer graphics principles.
 
-Use the sample
-
-## 
+## Features
+- Renders a static scene with a tree featuring a trunk and canopy.
+- A flat ground plane and a simplistic red sun.
