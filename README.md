@@ -1,5 +1,6 @@
-# CS550 INTRO TO COMPUTER GRAPHICS
-
+<h1 align = "center"> CS 550 Intro to Computer Graphics</h1>
+<p align = "center"> <b>#OpenGL  &emsp; #C++  &emsp;</b></p>
+  
 ## Course Description
 Theoretical and practical treatment of 3D computer graphics using OpenGL: geometric modeling, transformations, viewing, lighting, texture mapping, shading, rendering, and animation.
 
