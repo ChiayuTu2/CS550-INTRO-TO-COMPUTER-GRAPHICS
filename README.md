@@ -10,3 +10,5 @@ Theoretical and practical treatment of 3D computer graphics using OpenGL: geomet
 - [3. Lighting](https://github.com/ChiayuTu2/CS550-INTRO-TO-COMPUTER-GRAPHICS/tree/main/3.%20Lighting)
 - [4. Keytimes Animation](https://github.com/ChiayuTu2/CS550-INTRO-TO-COMPUTER-GRAPHICS/tree/main/4.%20Keytimes%20Animation)
 - [5. Texture Mapping](https://github.com/ChiayuTu2/CS550-INTRO-TO-COMPUTER-GRAPHICS/tree/main/5.%20Texture%20Mapping)
+- [6. Shader](https://github.com/ChiayuTu2/CS550-INTRO-TO-COMPUTER-GRAPHICS/tree/main/6.%20Shaders)
+- [7. Final Project](https://github.com/ChiayuTu2/CS550-INTRO-TO-COMPUTER-GRAPHICS/tree/main/7.%20Final%20Project)
