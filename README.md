@@ -3,7 +3,7 @@
 
 ```
 📦CS550-INTRO-TO-COMPUTER-GRAPHICS
- ┣ 📂0. Sample                               // SampleWindows.zip
+ ┣ 📂0. Sample                               // [SampleWindows.zip](https://github.com/ChiayuTu2/CS550-INTRO-TO-COMPUTER-GRAPHICS/tree/main/0.%20Sample)
  ┣ 📂1. Draw 3D                              // Project One
  ┣ 📂2. Transformations                      // Project Two
  ┣ 📂3. Lighting                             // Project Three
