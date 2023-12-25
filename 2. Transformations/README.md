@@ -1,83 +1,49 @@
-# CS 550 Project Two: Using Transformations to Animate a Carousel Horse!
+<h1 align = "center">CS 550 Project Two: Using Transformations to Animate a Carousel Horse!</h1>
 
-## Author
-- Name: Chiayu Tu
-- Email: tuchi@oregonstate.edu
+```
+📦Indoor_positioning_system
+ ┣ 📂CS550 Project Two.pdf                          
+ ┣ 📂sample.cpp
+ ┣ 📂CarouselHorse0.10.550
+ ┣ 📂README.md
+```
 
-## Project Overview
+<h2 align = "center">Instruction</h2>
+    <ol>
+        <li>Draw a horizontal circle with radius 2.0 in the X-Z plane (see above) to show the path of the horse.</li>
+        <li>Draw a carousel horse into a display list. Don't worry -- this won't be as hard as it sounds. The code for creating the horse geometry is shown below in the Geometry section. The horse's hooves are in the X-Z plane. The top of the horse points up in +Y. The horse's head faces in +X.</li>
+        <li>Each horse will have 4 transformations, not necessarily in this order:
+    		<ul>
+        		<li>The horse needs to translate up and down</li>
+        		<li>The horse needs to revolve in a circle</li>
+        		<li>The horse needs to be translated from the origin to the outside of the circle</li>
+        		<li>The horse needs to rock back and forth (like a rocking horse). If this was an airplane, we would call this motion "pitching".</li>
+    		</ul>
+	</li>
+        <li>Allow two views: an "Outside" view of the entire scene and an "Inside" view from the center of the carousel looking outward. Be able to switch between them in your video. (You could use a pop-up menu or a keyboard hit) For each view, use a different call to gluLookAt( ) to position the eye.</li>
+        <li>Keep the same Xrot, Yrot, and Scale features as we've used before, but only in the Outside View. Do not use Xrot, Yrot, and Scale in the Inside View.</li>
+        <li>Use gluPerspective( ), for both views. Only allow a switch to glOrtho( ) in the Outside view.</li>
+	<li>Use the graphics programming strategy where the Display( ) function looks at a collection of global variables and draws the scene correctly. The other parts of the program set the global variables and post a redisplay.
+</li>
+    </ol>
 
+<h2 align = "center">Goal</h2>
+  <ol>
+      <li>Draw a horse body with the "fake lighting"</li>
+      <li>The horse moves in a circle</li>
+      <li>The horse bobs up and down</li>
+      <li>The horse rocks (pitches)</li>
+      <li>Able to switch views</li>
+      <li>Able to animate 4 horses</li>
+  </ol>
 
-This project involves creating an animated carousel scene using OpenGL. The project involves programming a carousel horse to travel along a horizontal circle with a specified radius, implementing four types of transformations to simulate realistic motion, and setting up two different camera views for outside and inside perspectives. The animation is controlled by a global time variable to ensure consistent behavior across different systems. The project blends concepts of geometric transformations, camera manipulation, and animation timing to produce an interactive 3D scene.
+<h2 align = "center">Project Overview</h2>
+I approached the task methodically by dividing it into five sequential steps for this project. Firstly, I programmed a function to render a red circle with a radius of 2.0f. Secondly, I integrated the horse wireframe within the InitLists() function. Thirdly, within the Animate() function, I established a rotation mechanism for the horse: it continuously rotates by 0.5f until completing a full circle, at which point it resets. Concurrently, the horse executes a rocking motion around the red circle, dictated by a theta value derived from sinusoidal functions to simulate natural movement.
+I focused on the user's perspective, implementing inside and outside views using gluLookAt(). This function adjusts the eye point, reference point, and the 'up' direction for immersive viewing experiences. Users can toggle between these views via a DoViewMenu() function incorporated into InitMenus(). Finally, the fifth step involves duplicating the horse model to create a total of four horses, each positioned 90 degrees apart around the circle. The placement is calculated using trigonometric functions to determine their exact positions on the x and z-axes, relative to the circle's center.
 
-## Features
-- Using OpenGL to draw and animate horses on a circular path
-- Transformations include vertical translation, circular revolution, lateral translation, and rocking back and forth.
-- Incorporates two viewing perspectives, 'Outside' and 'Inside,' using different gluLookAt() parameters.
-- Adding more horses with offset animations.
+<h2 align = "center">Project Display</h2>
+  <a href="http://www.youtube.com/watch?v=6LcDjKYh87E" title="Project Display">
+    <img src="http://img.youtube.com/vi/6LcDjKYh87E/0.jpg" alt="Project Display" style="display:block; margin:auto;">
+  </a>
 
-
-## How to run
-- Download SampleWindows.zip.
-- Use VisualStudio 2022.
-- If you are on Windows, double-click on the .sln file.
-- Download CarouselHorse0.10.550 file and put this file in your folder.
-- Draw a wireframe horse, use the following code when you create your horse display list in InitLists():
-    ```c
-    WireHorseList = glGenLists( 1 );
-    glNewList( WireHorseList, GL_COMPILE );
-        glPushMatrix( );
-            glRotatef(90.f, 0., 1., 0.);
-            glTranslatef( 0., -1.1f, 0.f);
-            glColor3f( 1.f, 1.f, 0.f); // yellow
-            glBegin( GL_LINES );
-                for( int i=0; i < HORSEnedges; i++ )
-                {
-                    struct point p0 = HORSEpoints[ HORSEedges[i].p0 ];
-                    struct point p1 = HORSEpoints[ HORSEedges[i].p1 ];
-                    glVertex3f( p0.x, p0.y, p0.z );
-                    glVertex3f( p1.x, p1.y, p1.z );
-                }
-            glEnd( );
-        glPopMatrix( );
-    glEndList( );
-
-- If you want to draw a polygon horse, use the following code when you create your horse display list in InitLists( ):
-  ```c
-  HorseList = glGenLists( 1 );
-	glNewList( HorseList, GL_COMPILE );
-		glPushMatrix( );
-			glRotatef(90.f, 0., 1., 0.);
-			glTranslatef( 0., -1.1f, 0.f);
-			glBegin( GL_TRIANGLES );
-				for( int i = 0; i < HORSEntris; i++ )
-				{
-					struct point p0 = HORSEpoints[ HORSEtris[i].p0 ];
-					struct point p1 = HORSEpoints[ HORSEtris[i].p1 ];
-					struct point p2 = HORSEpoints[ HORSEtris[i].p2 ];
-
-					// fake "lighting" from above:
-
-					float p01[3], p02[3], n[3];
-					p01[0] = p1.x - p0.x;
-					p01[1] = p1.y - p0.y;
-					p01[2] = p1.z - p0.z;
-					p02[0] = p2.x - p0.x;
-					p02[1] = p2.y - p0.y;
-					p02[2] = p2.z - p0.z;
-					Cross( p01, p02, n );
-					Unit( n, n );
-					n[1] = (float)fabs( n[1] );
-					// simulating a glColor3f( 1., 1., 0. ) = yellow:
-					glColor3f( 1.f*n[1], 1.f*n[1], 0.f*n[1]);
-
-					glVertex3f( p0.x, p0.y, p0.z );
-					glVertex3f( p1.x, p1.y, p1.z );
-					glVertex3f( p2.x, p2.y, p2.z );
-				}
-			glEnd( );
-		glPopMatrix( );
-	glEndList( );
-
-## Project Display
-[![Project Display](http://img.youtube.com/vi/6LcDjKYh87E/0.jpg)](http://www.youtube.com/watch?v=6LcDjKYh87E "Project Display")
 
