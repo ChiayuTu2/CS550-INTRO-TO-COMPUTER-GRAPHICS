@@ -28,9 +28,6 @@
 To achieve the desired outcomes for my project, I began by drafting preliminary designs on coordinate paper. Utilizing glVertex3f(), I was able to translate these concepts into 3D models. To streamline the creation of recurring patterns, I encapsulated one pattern in a function and replicated it across different positions through scaling and translation. The model now includes a fully realized trunk, leaves, ground, and pond. Additionally, I ventured into learning about trigonometric functions and glVertex3f() to craft a spherical sun. While the sun's body is complete, I am still working on simulating the surrounding luminosity.
 
 <h2 align = "center">Project Display</h2>
-<div style="text-align: center;">
-  
-</div>
   <a href="http://www.youtube.com/watch?v=s04dvt7kroc" title="Project Display">
     <img src="http://img.youtube.com/vi/s04dvt7kroc/0.jpg" alt="Project Display" style="display:block; margin:auto;">
   </a>
