@@ -27,6 +27,68 @@
 </li>
     </ol>
 
+<h2 align = "center">Supplying the Geometry</h2>
+<div>
+    <h3>If you want to draw a wireframe horse, use the following code when you create your horse display list in InitLists():</h3>
+    <pre><code>
+	WireHorseList = glGenLists( 1 );
+	glNewList( WireHorseList, GL_COMPILE );
+	    glPushMatrix( );
+	        glRotatef(90.f, 0., 1., 0.);
+	        glTranslatef( 0., -1.1f, 0.f);
+	        glColor3f( 1.f, 1.f, 0.f);	// yellow
+	        glBegin( GL_LINES );
+	            for( int i=0; i &lt; HORSEnedges; i++ )
+	            {
+	                struct point p0 = HORSEpoints[ HORSEedges[i].p0 ];
+	                struct point p1 = HORSEpoints[ HORSEedges[i].p1 ];
+	                glVertex3f( p0.x, p0.y, p0.z );
+	                glVertex3f( p1.x, p1.y, p1.z );
+	            }
+	        glEnd( );
+	    glPopMatrix( );
+	glEndList( );
+    </code></pre>
+</div>
+<div>
+    <h3>If you want to draw a polygon horse, use the following code when you create your horse display list in InitLists():</h3>
+    <pre><code>
+	HorseList = glGenLists( 1 );
+	glNewList( HorseList, GL_COMPILE );
+	    glPushMatrix( );
+	        glRotatef(90.f, 0., 1., 0.);
+	        glTranslatef( 0., -1.1f, 0.f);
+	        glBegin( GL_TRIANGLES );
+	            for( int i = 0; i &lt; HORSEntris; i++ )
+	            {
+	                struct point p0 = HORSEpoints[ HORSEtris[i].p0 ];
+	                struct point p1 = HORSEpoints[ HORSEtris[i].p1 ];
+	                struct point p2 = HORSEpoints[ HORSEtris[i].p2 ];
+	
+	                // fake "lighting" from above:
+	
+	                float p01[3], p02[3], n[3];
+	                p01[0] = p1.x - p0.x;
+	                p01[1] = p1.y - p0.y;
+	                p01[2] = p1.z - p0.z;
+	                p02[0] = p2.x - p0.x;
+	                p02[1] = p2.y - p0.y;
+	                p02[2] = p2.z - p0.z;
+	                Cross( p01, p02, n );
+	                Unit( n, n );
+	                n[1] = (float)fabs( n[1] );
+	                glColor3f( 1.f*n[1], 1.f*n[1], 0.f*n[1]);
+	
+	                glVertex3f( p0.x, p0.y, p0.z );
+	                glVertex3f( p1.x, p1.y, p1.z );
+	                glVertex3f( p2.x, p2.y, p2.z );
+	            }
+	        glEnd( );
+	    glPopMatrix( );
+	glEndList( );
+    </code></pre>
+</div>
+
 <h2 align = "center">Goal</h2>
   <ol>
       <li>Draw a horse body with the "fake lighting"</li>
@@ -45,5 +107,6 @@ I focused on the user's perspective, implementing inside and outside views using
   <a href="http://www.youtube.com/watch?v=6LcDjKYh87E" title="Project Display">
     <img src="http://img.youtube.com/vi/6LcDjKYh87E/0.jpg" alt="Project Display" style="display:block; margin:auto;">
   </a>
+  
 
 
