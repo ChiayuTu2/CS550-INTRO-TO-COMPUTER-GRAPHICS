@@ -1,7 +1,7 @@
 <h1 align = "center">CS 550 Project One: Drawing something cool in 3D!</h1>
 
 ```
-📦Indoor_positioning_system
+📦1. Draw 3D
  ┣ 📂CS550 Project One.pdf                          
  ┣ 📂sample.cpp
  ┣ 📂README.md
